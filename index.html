@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma Encoder/Decoder</title>
+    <link rel="icon" href="src/favicon.ico">
+    <link rel="stylesheet" href="src/scss/enigma.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/086b12d3c8.js"></script>
+</head>
+<body>
+    <h1>Enigma encoder/decoder</h1>
+    <section class="main-container">
+        <div class="main-container-textarea">
+            <h2>Your text:</h2>
+            <textarea class="user-text"></textarea>
+        </div>
+        <div class="main-container-setting">
+            <div class="main-container-setting-setting">
+                <div class="long-setting">
+                    <label>reflector</label>
+                    <select id="reflector-select">
+                        <option class="opt">UKW-A</option>
+                        <option class="opt" selected="selected">UKW-B</option>
+                        <option class="opt">UKW-C</option>
+                    </select>
+                </div>
+                <div class="long-setting">
+                    <label>Plugboard</label>
+                    <input type="text" id="plugboard-select" value="AO HI MU SN VX ZQ">
+                    <div class="warning hidden"></div>
+                </div>
+                <div class="setting-grid">
+                    <div class="small-setting">
+                        <label>Rotor 1</label>
+                        <select class="rotor-select">
+                            <option class="opt">I</option>
+                            <option class="opt">II</option>
+                            <option class="opt">III</option>
+                            <option class="opt">IV</option>
+                            <option class="opt">V</option>
+                            <option class="opt">VI</option>
+                            <option class="opt">VII</option>
+                            <option class="opt">VIII</option>
+                        </select>
+                    </div>
+                    <div class="small-setting">
+                        <label>position</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">1</p>
+                                <input type="text" value="E" class="position-input" maxlength="1" id="position1">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                    </div>
+                    <div class="small-setting">
+                        <label>ring</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">1</p>
+                                <input type="text" value="A" class="ring-input" maxlength="1">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                    </div>
+    
+                    <div class="small-setting">
+                        <label>Rotor 2</label>
+                        <select class="rotor-select">
+                            <option class="opt">I</option>
+                            <option class="opt" selected="selected">II</option>
+                            <option class="opt">III</option>
+                            <option class="opt">IV</option>
+                            <option class="opt">V</option>
+                            <option class="opt">VI</option>
+                            <option class="opt">VII</option>
+                            <option class="opt">VIII</option>
+                        </select>
+                    </div>
+                    <div class="small-setting">
+                        <label>position</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">20</p>
+                                <input type="text" value="N" class="position-input" maxlength="1" id="position2">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                    </div>
+                    <div class="small-setting">
+                        <label>ring</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">1</p>
+                                <input type="text" value="A" class="ring-input" maxlength="1">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="small-setting">
+                        <label>Rotor 3</label>
+                        <select class="rotor-select">
+                            <option class="opt">I</option>
+                            <option class="opt">II</option>
+                            <option class="opt" selected="selected">III</option>
+                            <option class="opt">IV</option>
+                            <option class="opt">V</option>
+                            <option class="opt">VI</option>
+                            <option class="opt">VII</option>
+                            <option class="opt">VIII</option>
+                        </select>
+                    </div>
+                    <div class="small-setting">
+                        <label>position</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">17</p>
+                                <input type="text" value="I" class="position-input" maxlength="1" id="position3">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                    </div>
+                    <div class="small-setting">
+                        <label>ring</label>
+                        <div class="setting-grid-inputs">
+                            <button class="step-down">–</button>
+                            <div class="input-value">
+                                <p class="position-number">1</p>
+                                <input type="text" value="A" class="ring-input" maxlength="1">
+                            </div>
+                            <button class="step-up">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button id="encrypt-text">Encode / Decode</button>
+            </div>
+        </div>
+        <div class="main-container-textarea">
+            <h2>Encoded/Decoded text: </h2>
+            <textarea class="result-text"></textarea>
+        </div>
+    </section>
+    <footer>
+        <a href="">
+            <i class="fab fa-github"></i>
+            <p>GitHub</p>
+        </a>
+    </footer>
+    <script src="src/js/enigma.js"></script>
+</body>
+</html>
